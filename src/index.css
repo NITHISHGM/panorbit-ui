@@ -78,13 +78,13 @@ body{
   padding-right: 5px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  background: #f7f7f7;
 }
-.landingCard .ant-card-body {
-  padding-right: 5px;
-}
+
 .users-list-card .ant-list-item {
-  border-block-end: 1px solid lightgrey;
-  width: 98%;
+  border-block-end: 1px solid lightgrey !important;
+  width: 95%;
+  padding: 6px;
 }
 /* Landing Page styles End */
 
