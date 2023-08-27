@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
-  MessageOutlined,
+  MessageFilled,
   CaretUpFilled,
   CaretDownFilled,
 } from "@ant-design/icons";
@@ -27,7 +27,7 @@ const ChatBot = () => {
             <div className="chatbot-overlay" ref={chatContainerRef}>
               <div className="bot-cls" onClick={() => setBotToggle(!botToggle)}>
                 <span className="float-left">
-                  <MessageOutlined /> <span className="chat-test">Chats</span>
+                  <MessageFilled /> <span className="chat-test">Chats</span>
                 </span>
                 <span className="float-right">
                   {!botToggle ? <CaretUpFilled /> : <CaretDownFilled />}
@@ -70,7 +70,7 @@ const ChatBot = () => {
           <>
             <div className="bot-cls" onClick={() => setBotToggle(!botToggle)}>
               <span className="float-left">
-                <MessageOutlined /> <span className="chat-test">Chats</span>
+                <MessageFilled /> <span className="chat-test">Chats</span>
               </span>
               <span className="float-right">
                 {!botToggle ? <CaretUpFilled /> : <CaretDownFilled />}
