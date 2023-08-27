@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { MessageOutlined, UpOutlined, DownOutlined } from "@ant-design/icons";
+import {
+  MessageOutlined,
+  CaretUpFilled,
+  CaretDownFilled,
+} from "@ant-design/icons";
 import { Avatar, List, Badge } from "antd";
 import { useSelector } from "react-redux";
 
@@ -23,19 +27,22 @@ const ChatBot = () => {
             <div className="chatbot-overlay" ref={chatContainerRef}>
               <div className="bot-cls" onClick={() => setBotToggle(!botToggle)}>
                 <span className="float-left">
-                  <MessageOutlined /> <span>Chats</span>
+                  <MessageOutlined /> <span className="chat-test">Chats</span>
                 </span>
                 <span className="float-right">
-                  {botToggle ? <UpOutlined /> : <DownOutlined />}
+                  {!botToggle ? <CaretUpFilled /> : <CaretDownFilled />}
                 </span>
               </div>
               <div className="chatbot-messages">
                 <List
                   dataSource={users}
-                  style={{ maxHeight: "200px", overflowY: "scroll" }}
+                  style={{ maxHeight: "250px", overflowY: "scroll" }}
                   className="bot-list"
                   renderItem={(item) => (
-                    <List.Item className="bot-list-message" key={item.id}>
+                    <List.Item
+                      className="bot-list-message cursor-pointer"
+                      key={item.id}
+                    >
                       <List.Item.Meta
                         avatar={
                           <Avatar size="default" src={item.profilepicture} />
@@ -63,10 +70,10 @@ const ChatBot = () => {
           <>
             <div className="bot-cls" onClick={() => setBotToggle(!botToggle)}>
               <span className="float-left">
-                <MessageOutlined /> <span>Chats</span>
+                <MessageOutlined /> <span className="chat-test">Chats</span>
               </span>
               <span className="float-right">
-                {botToggle ? <UpOutlined /> : <DownOutlined />}
+                {!botToggle ? <CaretUpFilled /> : <CaretDownFilled />}
               </span>
             </div>
           </>

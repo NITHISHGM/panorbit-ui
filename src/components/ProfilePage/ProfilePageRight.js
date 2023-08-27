@@ -9,7 +9,7 @@ const ProfilePageRight = () => {
     <div>
       <Row>
         {" "}
-        <Col span={24} className="profile-left">
+        <Col span={24} className="profile-right">
           <div className="label-text pb-1"> Address :</div>
           <Row className="pt-1 pb-1">
             <Col span={8} className="textAlign-end">

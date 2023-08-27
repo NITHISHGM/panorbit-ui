@@ -71,7 +71,7 @@ const ProfilePageLeft = () => {
           </Row>
         </Col>
 
-        <div className="custom-divider"> </div>
+        <div className="custom-divider" />
         <Col span={24} className="profile-left">
           <div className="text-center label-text pb-1"> Company</div>
           <Row className="pt-1 pb-1">

@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Layout, Row, Col, Avatar, Dropdown, Menu, Button } from "antd";
+import {
+  Layout,
+  Row,
+  Col,
+  Avatar,
+  Dropdown,
+  Menu,
+  Button,
+  Divider,
+} from "antd";
 import { getUsers } from "../redux/slice/usersSlice";
 import SideNav from "../components/sideNav/SideNav";
 import ChatBot from "../components/ChatBot";
@@ -31,7 +40,7 @@ const Profile = (props) => {
         let Obj = { label: user.name, key: key + 1, img: user.profilepicture };
         return Obj;
       });
-      setDropdownList(createDropdownListData.slice(1, 4));
+      setDropdownList(createDropdownListData.slice(1, 3));
     }
   }, [status]);
 
@@ -53,10 +62,10 @@ const Profile = (props) => {
 
         {dropDownList.map((user) => (
           <>
-            <Menu.Item key={user.key}>
+            <div className="profile-divider" />
+            <Menu.Item key={user.key} className="text-center">
               <span>
-                <Avatar size="default" src={user.img} />
-
+                <Avatar size={30} src={user.img} />
                 <span className="p-lg-3">{user.label}</span>
               </span>
             </Menu.Item>
@@ -110,7 +119,7 @@ const Profile = (props) => {
                   <Dropdown
                     overlayStyle={{ width: "250px" }}
                     trigger={["click"]}
-                    placement="bottom"
+                    placement="bottomLeft"
                     overlayInnerStyle={{ padding: "10px" }}
                     dropdownRender={dropdownRender}
                   >
@@ -122,13 +131,11 @@ const Profile = (props) => {
               </Col>
             </Row>
           </Header>
-          <Content className="layout-content">
-            {" "}
-            {props.children}
-            <ChatBot />
-          </Content>
+          <Content className="layout-content"> {props.children}</Content>
 
-          {/* <Footer className="layout-footer"></Footer> */}
+          <Footer className="layout-footer">
+            <ChatBot />
+          </Footer>
         </Layout>
       </Layout>
     </div>

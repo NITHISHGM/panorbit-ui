@@ -7,14 +7,14 @@ const ProfilePage = () => {
   return (
     <div>
       <Row>
-        <Col span={10}>
+        <Col span={9} className="pr-40">
           <ProfilePageLeft />
         </Col>
         <Col span={1}>
           <div className="custom-vertical-divider"></div>
         </Col>
 
-        <Col span={13}>
+        <Col span={14} className="pr-40">
           <ProfilePageRight />
         </Col>
       </Row>

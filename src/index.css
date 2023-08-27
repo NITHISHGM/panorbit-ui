@@ -23,14 +23,16 @@ body{
   padding-right: 0.5rem;
 }
 .custom-divider {
-  border-top: 1px solid grey;
-  width: 80%;
-  margin: 20px 50px;
+  border-top: 0.5px solid #acaaaa;
+  width: 100%;
+  margin: 20px 20px;
+}
+.pr-40{
+  padding-right: 40px;
 }
 .custom-vertical-divider {
-  border-left: 1px solid grey;
-  height: 90%;
-  margin: 30px 0;
+  border-left: 0.5px solid #acaaaa;
+  height: 100%;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -87,8 +89,13 @@ body{
 /* Landing Page styles End */
 
 /* Profile.js styles start */
-.profile-layout {
-  margin: 40px;
+.profile-divider {
+  border-top: 0.5px solid #a69a96;
+  margin: 0 30px;
+}
+
+.profile-right {
+  padding-left: 30px;
 }
 /* sider styles start */
 .layout-sider {
@@ -97,7 +104,7 @@ body{
   background: linear-gradient(#1255b9,#5657c9) !important;
 }
 .side-nav .ant-col.ant-col-24 {
-  margin: 0 0 -10px 0;
+  margin: -5px -5px -5px -5px;
 }
 .side-nav .ant-col.ant-col-24 div {
   color: white;
@@ -112,8 +119,9 @@ body{
   margin: 18px 0;
 }
 .profile-layout .layout-sider {
-  max-width: 230px !important;
-  min-width: 230px !important;
+  max-width: 220px !important;
+  min-width: 220px !important;
+  margin: 40px;
 }
 .side-nav .ant-col.ant-col-24 div.active-nav {
   color: white !important;
@@ -130,14 +138,15 @@ body{
           background: white;
           color: black;
           border-bottom: 0.5px solid #b9b3b3;
-          margin: 0 20px;
+          margin: 40px 40px 40px 0;
+          padding: 0;
       }
       .loggedIn-username {
         font-size: 16px;
         letter-spacing: 0.5px;
         font-weight: 500;
         padding-left: 12px;
-        color: grey;
+        color: #3b434c;
       }    
       .page-heading {
         font-size: 20px;
@@ -179,21 +188,22 @@ body{
   font-size: 12px;
 }
 .label-text {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  color: dimgrey;
+  font-family: sans-serif;
+  color: #959393;
 }
 .value-text {
-  color: #3d3d3d;
-  font-weight: 700;
-  font-size: 16px;
+  color: #3b434c;
+    font-weight: 600;
+    font-size: 17px;
 }
 img.user-img {
-  height: 200px;
+  height: 180px;
   border-radius: 50%;
   position: relative;
-  left: 25%;
+  left: 20%;
 }
 img.mapImg {
   width: 100%;
@@ -228,6 +238,7 @@ img.mapImg {
   width: 250px;
   float: right;
   position: relative;
+  margin-right: 40px;
 }
 .chatbot-overlay {
   position: absolute;
@@ -236,7 +247,7 @@ img.mapImg {
   bottom: 0;
   background-color: white;
   overflow-y: scroll;
-  max-height: 300px; /* Adjust for header height */
+  
 }
 .bot-list {
   padding: 0px 15px;
@@ -251,4 +262,15 @@ li.ant-list-item.bot-list-message {
   font-size: 14px;
   font-weight: 400;
   color: #3d3d3d;
+}
+
+span.chat-test {
+  font-size: 18px;
+  padding-left: 6px;
+}
+
+.layout-footer {
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
