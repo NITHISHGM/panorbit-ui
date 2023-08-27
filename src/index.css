@@ -88,21 +88,22 @@ body{
 
 /* Profile.js styles start */
 .profile-layout {
-  margin: 30px;
+  margin: 40px;
 }
 /* sider styles start */
 .layout-sider {
   min-height: 100vh;
-  border-radius: 30px;
+  border-radius: 20px;
   background: linear-gradient(#1255b9,#5657c9) !important;
 }
 .side-nav .ant-col.ant-col-24 {
   margin: 0 0 -10px 0;
 }
 .side-nav .ant-col.ant-col-24 div {
-  color: lightgrey;
+  color: white;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
+  opacity: 0.60;
   letter-spacing: 0.5px;
 }
 
@@ -117,6 +118,10 @@ body{
 .side-nav .ant-col.ant-col-24 div.active-nav {
   color: white !important;
   font-weight: 500 !important;
+  opacity: 1;
+}
+.side-nav .ant-col.ant-col-24 a{
+  text-decoration-line: none;
 }
 /* sider styles end  */
 
@@ -125,7 +130,7 @@ body{
           background: white;
           color: black;
           border-bottom: 0.5px solid #b9b3b3;
-          margin: 10px 20px;
+          margin: 0 20px;
       }
       .loggedIn-username {
         font-size: 16px;
@@ -137,7 +142,7 @@ body{
       .page-heading {
         font-size: 20px;
         font-weight: 500;
-        color: grey;
+        color: #38404a;
         letter-spacing: 0.5px;
     }
 /* header styles end */      
