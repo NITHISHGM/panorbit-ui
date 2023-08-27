@@ -292,3 +292,9 @@ span.anticon.anticon-message {
   position: relative;
   bottom: 3px;
 }
+.loader{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}

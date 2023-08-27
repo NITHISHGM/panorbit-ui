@@ -5,6 +5,7 @@ import { getUsers } from "../redux/slice/usersSlice";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { selectedUserAction } from "../redux/slice/selectedUserSlice";
+import { RotatingLines } from "react-loader-spinner";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -75,7 +76,15 @@ const LandingPage = () => {
                 </div>
               </>
             ) : (
-              <>Loading...</>
+              <div className="loader">
+                <RotatingLines
+                  strokeColor="black"
+                  strokeWidth="2"
+                  animationDuration="0.75"
+                  width="50"
+                  visible={true}
+                />
+              </div>
             )}
           </Card>
         </Col>
