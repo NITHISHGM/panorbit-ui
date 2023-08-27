@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Row, Col, Divider, Space } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
-const SideNav = ({ activeUser, activePage }) => {
-  const [selectedNav, setSelectedNav] = useState(activePage);
+const SideNav = ({ activeUser }) => {
+  const location = useLocation();
+  const { id } = useParams();
   return (
     <div className="side-nav">
       <Space
@@ -20,9 +21,12 @@ const SideNav = ({ activeUser, activePage }) => {
           <Col span={24}>
             <Link to={`/profile/${activeUser[0]?.id}`}>
               <div
-                className={`${
-                  selectedNav === "profile/1" ? "active-nav" : "non-active-nav"
-                }`}
+                className={
+                  location.pathname.includes("/profile/") &&
+                  location.pathname.endsWith(id)
+                    ? "active-nav"
+                    : ""
+                }
               >
                 Profile
               </div>
@@ -32,9 +36,7 @@ const SideNav = ({ activeUser, activePage }) => {
           <Col span={24}>
             <Link to={`/posts`}>
               <div
-                className={`${
-                  selectedNav === "posts" ? "active-nav" : "non-active-nav"
-                }`}
+                className={location.pathname === "/posts" ? "active-nav" : ""}
               >
                 Posts
               </div>
@@ -44,9 +46,7 @@ const SideNav = ({ activeUser, activePage }) => {
           <Col span={24}>
             <Link to={`/gallery`}>
               <div
-                className={`${
-                  selectedNav === "gallery" ? "active-nav" : "non-active-nav"
-                }`}
+                className={location.pathname === "/gallery" ? "active-nav" : ""}
               >
                 Gallery
               </div>
@@ -56,9 +56,7 @@ const SideNav = ({ activeUser, activePage }) => {
           <Col span={24}>
             <Link to={`/todo`}>
               <div
-                className={`${
-                  selectedNav === "todo" ? "active-nav" : "non-active-nav"
-                }`}
+                className={location.pathname === "/todo" ? "active-nav" : ""}
               >
                 ToDo
               </div>

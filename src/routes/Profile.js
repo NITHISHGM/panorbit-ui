@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Layout, Row, Col, Avatar, Dropdown, Menu, Button } from "antd";
 import { getUsers } from "../redux/slice/usersSlice";
@@ -12,14 +12,13 @@ const { Header, Footer, Sider, Content } = Layout;
 const Profile = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { id } = useParams();
   const location = useLocation();
 
   const selectedUserData = useSelector((state) => state.selectedUser.data);
   const { data, status } = useSelector((state) => state.allUsers);
+
   const [selectedUser, setSelectedUser] = useState([]);
-  const [activePage, setActivePage] = useState("");
-  const [activePageHeading, setActivePageHeading] = useState("");
   const [dropDownList, setDropdownList] = useState([]);
 
   useEffect(() => {
@@ -35,27 +34,6 @@ const Profile = (props) => {
       setDropdownList(createDropdownListData.slice(1, 4));
     }
   }, [status]);
-
-  useEffect(() => {
-    if (location) {
-      let tmp = location.pathname;
-      const urlWithoutSlash = tmp.substring(1);
-      setActivePage(urlWithoutSlash);
-    }
-  }, [location]);
-  useEffect(() => {
-    if (activePage) {
-      if (activePage === "profile/1") {
-        setActivePageHeading("Profile");
-      } else if (activePage === "posts") {
-        setActivePageHeading("Posts");
-      } else if (activePage === "gallery") {
-        setActivePageHeading("Gallery");
-      } else if (activePage === "todo") {
-        setActivePageHeading("ToDo");
-      }
-    }
-  }, [activePage]);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -98,19 +76,32 @@ const Profile = (props) => {
       </Menu>
     </>
   );
+  const activePageName = () => {
+    if (
+      location.pathname.includes("/profile/") &&
+      location.pathname.endsWith(id)
+    ) {
+      return "Profile";
+    } else if (location.pathname === "/posts") {
+      return "Posts";
+    } else if (location.pathname === "/gallery") {
+      return "Gallery";
+    } else if (location.pathname === "/todo") {
+      return "ToDo";
+    }
+  };
 
   return (
     <div className="profile-layout">
-      {console.log("dropDownList", dropDownList)}
       <Layout>
         <Sider className="layout-sider">
-          <SideNav activeUser={selectedUser} activePage={activePage} />
+          <SideNav activeUser={selectedUser} />
         </Sider>
         <Layout>
           <Header className="layout-header">
             <Row>
               <Col span={24}>
-                <span className="page-heading">{activePageHeading}</span>
+                <span className="page-heading">{activePageName()}</span>
                 <span className="float-right">
                   <Avatar
                     size="default"
